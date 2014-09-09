@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+#ruby '2.1.2'
 
 gem 'rails', '4.1.5'
 
@@ -33,3 +33,5 @@ end
 group :test do
   gem 'database_cleaner'
 end
+
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
