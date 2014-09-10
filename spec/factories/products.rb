@@ -5,5 +5,7 @@ FactoryGirl.define do
     title "MyString"
     description "MyText"
     price 1.5
+    user
+    category
   end
 end
