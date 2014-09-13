@@ -16,7 +16,7 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'quiet_assets'
 gem 'jquery-rails'
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '0.11.3', platforms: :ruby
 gem 'travis'
 gem 'ffaker'
 
