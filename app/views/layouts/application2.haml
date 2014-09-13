@@ -1,8 +1,6 @@
 !!!
 %html{ lang: 'en' }
   %head
-    %title
-      Netguru Workshops App
     %meta{ charset: 'utf-8' }/
     %meta{ content: 'IE=Edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }/
     %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }/
@@ -11,9 +9,13 @@
     = javascript_include_tag 'application'
 
   %body
-    = render 'layouts/header'
-    .container
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %span.navbar-brand Netguru Kraków Workshops 2014
+        %p.navbar-text.navbar-right
+          Links should go here
+    .container-fluid
       .row
         .col-lg-12
           = yield
-      = render 'layouts/footer'

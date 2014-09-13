@@ -19,6 +19,14 @@ class ReviewsController < ApplicationController
       render action: 'new'
     end
   end
+  
+  def update
+    if self.review.update(review_params)
+      redirect_to category_product_url(product.category, product), notice: 'Review was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
 
   def destroy
     review.destroy

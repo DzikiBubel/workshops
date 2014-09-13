@@ -1,25 +1,38 @@
 %p#notice= notice
 %p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
-
-%p
-  %b Category
-  = product.category.name
+.row
+  .col-md-offset-3.col-md-6
+    .container-fluid
+      %p.resource-name
+        %b Product Title:
+        = product.title
+      %p
+        %b Description:
+        = product.description
+      %p
+        %b Price:
+        = product.price
+      %p
+        %b Average Rating:
+        = product.average_rating
+      %p
+        %b Category:
+        = product.category.name
 
 %h3 Reviews
-= render 'reviews/form'
 
-= render reviews
+.row
+  .col-md-12.col-lg-8
+    .container-fluid.reviews
+      = render reviews
+  .col-lg-4.col-md-6.col-md-offset-3.col-lg-offset-0
+    .container-fluid.form-box
+      %h3 New review
+      = render 'reviews/form'
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+.navigation-buttons
+  - if user_signed_in? && current_user.admin?
+    = link_to 'Edit', edit_category_product_path(category.id, product.id)
+    \|
+  = link_to 'Back', category_products_path, class: 'btn btn-primary'

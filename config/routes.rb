@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   root 'categories#index'
   devise_for :users, :class_name => 'User'
+  resources :users, :only => [:show]
 end

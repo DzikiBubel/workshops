@@ -1,4 +1,26 @@
-%p= review.content
-%p
-  %b= review.rating
-  %em= review.author
+.row
+  .col-md-12
+    .container-fluid
+      .panel.panel-default
+        .panel-body
+          = review.content
+        .panel-footer
+          .row
+            .col-md-9.col-sm-9.col-xs-9
+              %p
+                - if params[:controller] == "users"
+                  Product:
+                  = link_to review.product.title, category_product_url(review.product.category, review.product)
+                - else
+                  Author:
+                  = link_to review.author, user_url(review.user)
+                \| Rating:
+                = review.rating
+                \| Created:
+                = review.created_at.strftime("%d-%m-%Y")
+            - if user_signed_in? && (current_user.admin? || current_user == review.user)
+              .col-md-3.col-sm-3.col-xs-3
+                %p.text-right
+                  = link_to "Edit", edit_category_product_review_url(review.product.category, review.product, review)
+                  \|
+                  = link_to "Delete", category_product_review_path(review.product.category, review.product, review), method: :delete, data: { confirm: 'Are you sure?' }

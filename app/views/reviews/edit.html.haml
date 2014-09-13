@@ -1,0 +1,8 @@
+.row
+  .col-md-offset-3.col-md-6.col-sx-offset-0.col-sx-12
+    .container-fluid.form-box
+      %h1 Editing review
+      = render 'form'
+
+.navigation-buttons
+  = link_to 'Back', category_product_path(product.category, product), class: 'btn btn-primary'

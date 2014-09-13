@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.that_belong_to_category(category)
+    redirect_to category_url(category)
   end
 
   def show
