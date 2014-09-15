@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
-  include ActionView::Helpers::NumberHelper
   
   belongs_to :category
   belongs_to :user
@@ -13,7 +12,7 @@ class Product < ActiveRecord::Base
     sum = 0.0
     reviews.each { |r| sum += r.rating }
     sum = sum / reviews.count
-    sum = number_with_precision(sum, precision: 2)
+    sum.round(1)
   end
   
   def self.that_belong_to_category(category)
